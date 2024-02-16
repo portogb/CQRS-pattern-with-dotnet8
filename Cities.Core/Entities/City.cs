@@ -13,5 +13,6 @@ namespace Cities.Core.Entities
         public string? Website { get; private set; } = website;
         public List<Restaurant> Restaurants { get; private set; } = [];
         public List<Hotel> Hotels { get; private set; } = [];
+        public List<TouristPackage> TouristPackages { get; set; } = [];
     }
 }
