@@ -11,6 +11,7 @@ namespace Cities.Core.Interfaces
     {
         Task<IEnumerable<City>> GetCities();
         Task<City> GetById(Guid id);
+        Task<City> GetByName(string name);
         Task<City> Create(City city);
         Task<City> Update(City city);
         Task Remove(City city);
