@@ -268,7 +268,14 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\porto\\source\\repos\\Cities\\Cities.Core\\Cities.Core.csproj": {
+                "projectPath": "C:\\Users\\porto\\source\\repos\\Cities\\Cities.Core\\Cities.Core.csproj"
+              },
+              "C:\\Users\\porto\\source\\repos\\Cities\\Cities.Infra.Data\\Cities.Infra.Data.csproj": {
+                "projectPath": "C:\\Users\\porto\\source\\repos\\Cities\\Cities.Infra.Data\\Cities.Infra.Data.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

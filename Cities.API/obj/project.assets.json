@@ -1605,6 +1605,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "Cities.Core": "1.0.0",
+          "Cities.Infra.Data": "1.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.0"
         },

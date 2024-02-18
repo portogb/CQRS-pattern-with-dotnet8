@@ -11,4 +11,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Cities.Core\Cities.Core.csproj" />
+    <ProjectReference Include="..\Cities.Infra.Data\Cities.Infra.Data.csproj" />
+  </ItemGroup>
+
 </Project>
