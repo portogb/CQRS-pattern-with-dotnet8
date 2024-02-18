@@ -24,7 +24,7 @@ namespace Cities.Infra.Data.EntitiesConfiguration
                 .IsRequired();
             
             builder.HasOne(hotel => hotel.City)
-                .WithMany(y => y.Hotels)
+                .WithMany()
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

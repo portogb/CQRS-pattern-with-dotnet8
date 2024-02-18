@@ -24,7 +24,7 @@ namespace Cities.Infra.Data.EntitiesConfiguration
                 .IsRequired();
 
             builder.HasOne(x => x.City)
-                .WithMany(y => y.TouristPackages)
+                .WithMany()
                 .HasForeignKey(x => x.CityId)
                 .OnDelete(DeleteBehavior.Restrict);
 
