@@ -31,6 +31,14 @@ namespace Cities.Infra.Data.Repositories
                 .SingleOrDefaultAsync(x => x.Id.Equals(id));
         }
 
+        public async Task<City> GetByName(string name)
+        {
+            return await _dbContext
+                .Cities
+                .AsNoTracking()
+                .SingleOrDefaultAsync(x => x.Name.Equals(name));
+        }
+
         public async Task<IEnumerable<City>> GetCities()
         {
             return await _dbContext
