@@ -9,8 +9,13 @@ namespace Cities.API.Controllers
     public class CityController : ControllerBase
     {
         private readonly ICityRepository _cityRepository;
+        private readonly ILogger _logger;
 
-        public CityController(ICityRepository cityRepository) => _cityRepository = cityRepository;
+        public CityController(ICityRepository cityRepository, ILogger logger)
+        {
+            _cityRepository = cityRepository;
+            _logger = logger;
+        }
 
         [HttpGet()]
         public async Task<IActionResult> GetAsync()
@@ -22,6 +27,7 @@ namespace Cities.API.Controllers
             }
             catch (Exception ex) 
             {
+                _logger.LogError(ex, ex.Message);
                 return BadRequest(ex);
             }
         }
@@ -36,6 +42,7 @@ namespace Cities.API.Controllers
             }
             catch(Exception ex)
             {
+                _logger.LogError(ex, ex.Message);
                 return BadRequest(ex);
             }
         }
