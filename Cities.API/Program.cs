@@ -1,4 +1,5 @@
 using Cities.Infra.Data.Context;
+using Cities.Infra.Ioc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,14 +11,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var configuration = builder
+var configuration = builder.Configuration;
+var connection = builder
     .Configuration
     .GetConnectionString("DefaultConnection");
 
 builder
     .Services
     .AddDbContext<AppDbContext>(o => o
-    .UseSqlServer(configuration));
+    .UseSqlServer(connection));
+
+builder
+    .Services
+    .AddInfrastructure(configuration);
 
 var app = builder.Build();
 
