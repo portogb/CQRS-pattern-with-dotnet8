@@ -12,7 +12,7 @@ namespace Cities.Application.Mapping
     {
         public MappingConfiguration()
         {
-            CreateMap<City, GetCitiesResponse>().ReverseMap();
+            CreateMap<City, GetCitiesItemResponse>().ReverseMap();
         }
     }
 }
