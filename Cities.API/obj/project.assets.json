@@ -1736,7 +1736,8 @@
           "Cities.Core": "1.0.0",
           "Cities.Infra.Data": "1.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
-          "Microsoft.Extensions.DependencyInjection": "8.0.0"
+          "Microsoft.Extensions.DependencyInjection": "8.0.0",
+          "Microsoft.Extensions.Logging": "8.0.0"
         },
         "compile": {
           "bin/placeholder/Cities.Infra.Ioc.dll": {}
@@ -4767,6 +4768,7 @@
       "Cities.Core >= 1.0.0",
       "Cities.Infra.Data >= 1.0.0",
       "Cities.Infra.Ioc >= 1.0.0",
+      "MediatR >= 12.2.0",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.2",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
@@ -4831,6 +4833,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "MediatR": {
+            "target": "Package",
+            "version": "[12.2.0, )"
+          },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
