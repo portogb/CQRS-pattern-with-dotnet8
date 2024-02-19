@@ -6,16 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cities.API.Controllers
 {
     [Microsoft.AspNetCore.Mvc.Route("api/cities")]
-    public class CityController : ControllerBase
+    public class CityController(ICityRepository cityRepository, ILogger logger) : ControllerBase
     {
-        private readonly ICityRepository _cityRepository;
-        private readonly ILogger _logger;
-
-        public CityController(ICityRepository cityRepository, ILogger logger)
-        {
-            _cityRepository = cityRepository;
-            _logger = logger;
-        }
+        private readonly ICityRepository _cityRepository = cityRepository;
+        private readonly ILogger _logger = logger;
 
         [HttpGet()]
         public async Task<IActionResult> GetAsync()

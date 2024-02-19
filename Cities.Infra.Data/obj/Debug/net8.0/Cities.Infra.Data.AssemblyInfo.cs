@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cities.Infra.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e25851558601d0acf508e5fafd48d8e6076c1e4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e9dcb894030b6b69d0aba51c9d75e0a1416ef04")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cities.Infra.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cities.Infra.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
