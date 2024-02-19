@@ -27,11 +27,11 @@ namespace Cities.Application.DTO
             Message = Message;
         }
 
-        public MessageResponse(bool isSuccess, int code, string? Message, object data)
+        public MessageResponse(bool isSuccess, int code, string? message, object data)
         {
             IsSuccess = isSuccess;
             Code = code;
-            Message = Message;
+            Message = message;
             Data = data;
         }
 
