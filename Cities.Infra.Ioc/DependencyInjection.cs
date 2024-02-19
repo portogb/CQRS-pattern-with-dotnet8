@@ -1,7 +1,10 @@
-﻿using Cities.Core.Interfaces;
+﻿using Cities.Application.Mapping;
+using Cities.Core.Interfaces;
 using Cities.Infra.Data.Repositories;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace Cities.Infra.Ioc
 {
@@ -11,6 +14,7 @@ namespace Cities.Infra.Ioc
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddRepositories();
+            services.AddAutoMapper(typeof(MappingConfiguration));
             return services;
         }
 
