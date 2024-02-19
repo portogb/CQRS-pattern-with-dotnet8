@@ -5,6 +5,7 @@ using Cities.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System.Reflection;
 
 namespace Cities.Infra.Ioc
@@ -16,7 +17,8 @@ namespace Cities.Infra.Ioc
         {
             services.AddRepositories()
                 .AddAutoMapper(typeof(MappingConfiguration))
-                .AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetCitiesQuery).Assembly));
+                .AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetCitiesQuery).Assembly))
+                .AddSingleton(sp => sp.GetRequiredService<ILoggerFactory>().CreateLogger("DefaultLogger"));
 
             return services;
         }
