@@ -1,4 +1,5 @@
 ﻿using Cities.Application.Mapping;
+using Cities.Application.Queries.City;
 using Cities.Core.Interfaces;
 using Cities.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -13,8 +14,10 @@ namespace Cities.Infra.Ioc
 
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddRepositories();
-            services.AddAutoMapper(typeof(MappingConfiguration));
+            services.AddRepositories()
+                .AddAutoMapper(typeof(MappingConfiguration))
+                .AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetCitiesQuery).Assembly));
+
             return services;
         }
 
