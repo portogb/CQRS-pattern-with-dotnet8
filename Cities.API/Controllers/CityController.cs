@@ -1,4 +1,5 @@
-﻿using Cities.Application.Command.City;
+﻿using Cities.Application.Command.City.CreateCity;
+using Cities.Application.Command.City.DeleteCityById;
 using Cities.Application.DTO;
 using Cities.Application.Enums;
 using Cities.Application.Queries.City.GetCities;
@@ -18,27 +19,27 @@ namespace Cities.API.Controllers
         private readonly ILogger _logger = logger;
 
         [HttpGet()]
-        public async Task<IActionResult> GetAsync()
+        public async Task<IActionResult> Get()
         {
             try
             {
                 GetCitiesResponse response = await _mediator.Send(new GetCitiesQuery());
                 return Ok(new MessageResponse(true, 0, null, response));
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 _logger.LogError(ex, ex.Message);
                 return BadRequest(new MessageResponse
-                    (false, 
-                    404, 
-                    ex.Message, 
-                    new Error 
-                    { 
-                        Code = 404, 
+                    (false,
+                    404,
+                    ex.Message,
+                    new Error
+                    {
+                        Code = 404,
                         Description = ex.Message
                     }));
             }
-        }   
+        }
 
         [HttpPost]
         [Consumes("application/json")]
@@ -75,7 +76,7 @@ namespace Cities.API.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError (ex, ex.Message);
+                _logger.LogError(ex, ex.Message);
                 return BadRequest(new MessageResponse
                     (false,
                      (int)StatusCodeEnum.BadRequest,
@@ -85,6 +86,29 @@ namespace Cities.API.Controllers
                          Code = (int)StatusCodeEnum.BadRequest,
                          Description = ex.Message
                      }));
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(DeleteCityByIdCommand command)
+        {
+            try
+            {
+                var response = await _mediator.Send(command);
+                return Ok(new MessageResponse(true, 0, null, (int)StatusCodeEnum.Success));
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError (ex, ex.Message);
+                return BadRequest(new MessageResponse
+                    (false,
+                    (int)StatusCodeEnum.BadRequest,
+                    ex.Message,
+                    new Error
+                    {
+                        Code = (int)StatusCodeEnum.BadRequest,
+                        Description = ex.Message
+                    }));
             }
         }
     }

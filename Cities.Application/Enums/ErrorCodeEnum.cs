@@ -16,6 +16,10 @@ namespace Cities.Application.Enums
         [Description("Error creating city")]
         ErrorCreatingCity = 10002,
         [Description("Empty city request")]
-        EmptyCityRequest = 10003
+        EmptyCityRequest = 10003,
+        [Description("Invalid city id")]
+        InvalidCityId = 10004,
+        [Description("City not deleted")]
+        CityNotDeleted = 10005
     }
 }

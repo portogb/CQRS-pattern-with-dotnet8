@@ -19,10 +19,16 @@ namespace Cities.Application.Command.City.DeleteCityById
 
         public async Task<DeleteCityByIdResponse> Handle(DeleteCityByIdCommand request, CancellationToken cancellationToken)
         {
+            ValidationException.When(request.Id.Equals(Guid.Empty), ErrorCodeEnum.InvalidCityId.ToString(), (int)ErrorCodeEnum.InvalidCityId);
+
             Cities.Core.Entities.City city = await _cityRepository.GetById(request.Id);
             ValidationException.When(city is null, ErrorCodeEnum.CityDoesNotExist.ToString(), (int)ErrorCodeEnum.CityDoesNotExist);
 
-            _ = _cityRepository.Remove(city);
+            await _cityRepository.Remove(city);
+
+            Cities.Core.Entities.City existCity = await _cityRepository.GetById(request.Id);
+            ValidationException.When(existCity is not null, ErrorCodeEnum.CityNotDeleted.ToString(), (int)ErrorCodeEnum.CityNotDeleted);
+
             DeleteCityByIdResponse response = new()
             {
                 Success = true
