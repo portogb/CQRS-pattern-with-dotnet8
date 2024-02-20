@@ -1,6 +1,8 @@
-﻿using Cities.Application.DTO;
+﻿using Cities.Application.Command.City;
+using Cities.Application.DTO;
 using Cities.Application.Enums;
-using Cities.Application.Queries.City;
+using Cities.Application.Queries.City.GetCities;
+using Cities.Application.Queries.City.GetCityById;
 using Cities.Core.Entities;
 using Cities.Core.Interfaces;
 using MediatR;
@@ -29,28 +31,61 @@ namespace Cities.API.Controllers
                 return BadRequest(new MessageResponse
                     (false, 
                     404, 
-                    "Error getting cities",
+                    ex.Message, 
                     new Error 
                     { 
                         Code = 404, 
                         Description = ex.Message
                     }));
             }
+        }   
+
+        [HttpPost]
+        [Consumes("application/json")]
+        [Produces("application/json")]
+        public async Task<IActionResult> Post([FromBody] CreateCityCommand command)
+        {
+            try
+            {
+                CreateCityResponse response = await _mediator.Send(command);
+                return Ok(new MessageResponse(true, 0, "City created", response));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                return BadRequest(new MessageResponse
+                    (false,
+                    404,
+                    ex.Message,
+                    new Error
+                    {
+                        Code = 404,
+                        Description = ex.Message
+                    }));
+            }
         }
 
-        //[HttpPost()]
-        //public async Task<IActionResult> Post([FromBody] City city)
-        //{
-        //    try
-        //    {
-        //        City response = await _cityRepository.Create(city);
-        //        return Ok(response);
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        _logger.LogError(ex, ex.Message);
-        //        return BadRequest(ex);
-        //    }
-        //}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(GetCityByIdQuery query)
+        {
+            try
+            {
+                GetCityByIdResponse response = await _mediator.Send(query);
+                return Ok(new MessageResponse(true, (int)StatusCodeEnum.Success, null, response));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError (ex, ex.Message);
+                return BadRequest(new MessageResponse
+                    (false,
+                     (int)StatusCodeEnum.BadRequest,
+                     ex.Message,
+                     new Error
+                     {
+                         Code = (int)StatusCodeEnum.BadRequest,
+                         Description = ex.Message
+                     }));
+            }
+        }
     }
 }

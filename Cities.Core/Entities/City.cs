@@ -8,8 +8,8 @@ namespace Cities.Core.Entities
 {
     public class City(string name, string state, string? website) : BaseEntity
     {
-        public string Name { get; private set; } = name;
-        public string State { get; private set; } = state;
-        public string? Website { get; private set; } = website;
+        public string Name { get; init; } = name;
+        public string State { get; init; } = state;
+        public string? Website { get; init; } = website;
     }
 }
