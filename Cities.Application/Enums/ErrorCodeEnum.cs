@@ -12,6 +12,10 @@ namespace Cities.Application.Enums
         [Description("City not exist")]
         CityDoesNotExist = 10000,
         [Description("City already exist")]
-        CityAlreadyExist = 10001
+        CityAlreadyExist = 10001,
+        [Description("Error creating city")]
+        ErrorCreatingCity = 10002,
+        [Description("Empty city request")]
+        EmptyCityRequest = 10003
     }
 }
