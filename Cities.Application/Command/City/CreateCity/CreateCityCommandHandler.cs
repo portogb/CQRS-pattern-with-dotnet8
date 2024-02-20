@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cities.Application.Command.City
+namespace Cities.Application.Command.City.CreateCity
 {
     public class CreateCityCommandHandler(ICityRepository cityRepository, IMapper mapper) : IRequestHandler<CreateCityCommand, CreateCityResponse>
     {
@@ -18,13 +18,13 @@ namespace Cities.Application.Command.City
         private readonly IMapper _mapper = mapper;
 
         public async Task<CreateCityResponse> Handle(CreateCityCommand request, CancellationToken cancellationToken)
-        {   
+        {
             ValidationException.When(request.Equals(null), ErrorCodeEnum.EmptyCityRequest.ToString(), (int)ErrorCodeEnum.EmptyCityRequest);
 
-            Cities.Core.Entities.City cityResult = await _cityRepository.GetByName(request.Name);
+            Core.Entities.City cityResult = await _cityRepository.GetByName(request.Name);
             ValidationException.When(cityResult is not null, ErrorCodeEnum.CityAlreadyExist.ToString(), (int)ErrorCodeEnum.CityAlreadyExist);
 
-            Cities.Core.Entities.City cityEntity = new(request.Name, request.State, request.Website);
+            Core.Entities.City cityEntity = new(request.Name, request.State, request.Website);
             cityResult = await _cityRepository.Create(cityEntity);
             ValidationException.When(request.Equals(null), ErrorCodeEnum.ErrorCreatingCity.ToString(), (int)ErrorCodeEnum.ErrorCreatingCity);
 

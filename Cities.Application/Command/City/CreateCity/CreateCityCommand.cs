@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Cities.Application.Command.City
+namespace Cities.Application.Command.City.CreateCity
 {
     public record CreateCityCommand : IRequest<CreateCityResponse>
     {

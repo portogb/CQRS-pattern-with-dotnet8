@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cities.Application.Command.City
+namespace Cities.Application.Command.City.CreateCity
 {
     public class CreateCityResponse : CommonResponse
     {
