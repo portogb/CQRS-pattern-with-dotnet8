@@ -12,10 +12,9 @@ using System.Threading.Tasks;
 
 namespace Cities.Application.Command.City.DeleteCityById
 {
-    public class DeleteCityByIdCommandHandler(ICityRepository cityRepository, IMapper mapper) : IRequestHandler<DeleteCityByIdCommand, DeleteCityByIdResponse>
+    public class DeleteCityByIdCommandHandler(ICityRepository cityRepository) : IRequestHandler<DeleteCityByIdCommand, DeleteCityByIdResponse>
     {
         private readonly ICityRepository _cityRepository = cityRepository;
-        private readonly IMapper _mapper = mapper;
 
         public async Task<DeleteCityByIdResponse> Handle(DeleteCityByIdCommand request, CancellationToken cancellationToken)
         {
