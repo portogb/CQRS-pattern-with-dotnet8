@@ -1,5 +1,6 @@
 ﻿using Cities.Application.Command.City.CreateCity;
 using Cities.Application.Command.City.DeleteCityById;
+using Cities.Application.Command.City.UpdateCityById;
 using Cities.Application.Queries.City.GetCities;
 using Cities.Application.Queries.City.GetCityById;
 using Cities.Core.Entities;
@@ -19,6 +20,8 @@ namespace Cities.Application.Mapping
             CreateMap<City, CreateCityResponse>().ReverseMap();
             CreateMap<City, GetCityByIdResponse>().ReverseMap();
             CreateMap<City, DeleteCityByIdResponse>().ReverseMap();
+            CreateMap<City, UpdateCityByIdCommand>().ReverseMap();
+            CreateMap<City, UpdateCityByIdResponse>().ReverseMap();
         }
     }
 }

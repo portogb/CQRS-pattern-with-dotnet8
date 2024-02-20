@@ -1,5 +1,6 @@
 ﻿using Cities.Application.Command.City.CreateCity;
 using Cities.Application.Command.City.DeleteCityById;
+using Cities.Application.Command.City.UpdateCityById;
 using Cities.Application.Mapping;
 using Cities.Application.Queries.City.GetCities;
 using Cities.Application.Queries.City.GetCityById;
@@ -40,6 +41,7 @@ namespace Cities.Infra.Ioc
             services.AddScoped<IRequestHandler<CreateCityCommand, CreateCityResponse>, CreateCityCommandHandler>();
             services.AddScoped<IRequestHandler<GetCityByIdQuery, GetCityByIdResponse>, GetCityByIdQueryHandler>();
             services.AddScoped<IRequestHandler<DeleteCityByIdCommand, DeleteCityByIdResponse>, DeleteCityByIdCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateCityByIdCommand, UpdateCityByIdResponse>, UpdateCityByIdCommandHandler>();
 
             return services;
         }
