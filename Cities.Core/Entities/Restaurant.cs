@@ -1,10 +1,12 @@
 ﻿namespace Cities.Core.Entities
 {
-    public class Restaurant(string name, decimal lunch, Guid cityId) : BaseEntity
+    public sealed class Restaurant(Guid id, string name, decimal lunch, Guid cityId) : BaseEntity
     {
-        public string Name { get; private set; } = name;
-        public decimal Lunch { get; private set; } = lunch;
-        public Guid CityId { get; private set; } = cityId;
-        public City? City { get; private set; }
+        public string Name { get; init; } = name;
+        public decimal Lunch { get; init; } = lunch;
+        public Guid CityId { get; init; } = cityId;
+        public City? City { get; init; }
+
+        public Restaurant(string name, decimal lunch, Guid cityId) : this(Guid.Empty, name, lunch, cityId) { }
     }
 }

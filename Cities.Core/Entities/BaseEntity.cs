@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Cities.Core.Entities
 {
-    public abstract class BaseEntity
+    public abstract class BaseEntity(Guid id)
     {
-        public Guid Id { get; init; }
+        public Guid Id { get; init; } = id;
 
-        protected BaseEntity()
-        { }
+        protected BaseEntity() : this(Guid.Empty) { }
     }
 }
