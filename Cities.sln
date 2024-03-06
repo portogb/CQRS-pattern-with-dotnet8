@@ -11,14 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cities.Infra.Data", "Cities
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cities.Infra.Ioc", "Cities.Infra.Ioc\Cities.Infra.Ioc.csproj", "{B3F80619-F544-4F10-8F24-E05B5F346CFA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{328AE4C3-5996-4F49-8439-1BA1FB10B655}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cities.Application", "Cities.Application\Cities.Application.csproj", "{585F79FC-2EB8-4253-BAE2-1D742C801132}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cities.Tests", "Cities.Tests\Cities.Tests.csproj", "{A745167F-5DCF-4248-9378-2E11479D41F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{31D10A5F-3D4F-4CE2-82A3-72235CF8E1C6}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cities.Application", "Cities.Application\Cities.Application.csproj", "{585F79FC-2EB8-4253-BAE2-1D742C801132}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cities.Tests", "Cities.Tests\Cities.Tests.csproj", "{A745167F-5DCF-4248-9378-2E11479D41F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

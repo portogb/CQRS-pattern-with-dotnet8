@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cities.Core.Entities
 {
-    public class City: BaseEntity
+    public sealed class City: BaseEntity
     {
         public string Name { get; init; }
         public string State { get; init; }
