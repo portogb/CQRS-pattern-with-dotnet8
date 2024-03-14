@@ -6,6 +6,7 @@ using Cities.Application.Queries.City.GetCities;
 using Cities.Application.Queries.City.GetCityById;
 using Cities.Core.Interfaces;
 using Cities.Infra.Data.Repositories;
+using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;

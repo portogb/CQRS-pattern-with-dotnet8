@@ -1,12 +1,19 @@
+using Cities.API.Filters;
+using Cities.Application.Command.City.CreateCity;
 using Cities.Infra.Data.Context;
 using Cities.Infra.Ioc;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(x => x
+    .Filters
+    .Add(typeof(ValidationFilter)))
+    .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<CreateCityCommandValidator>());
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
