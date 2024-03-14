@@ -11,9 +11,19 @@
 
   <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="8.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.3" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="Moq" Version="4.20.70" />
     <PackageReference Include="xunit" Version="2.5.3" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cities.API\Cities.API.csproj" />
+    <ProjectReference Include="..\Cities.Application\Cities.Application.csproj" />
+    <ProjectReference Include="..\Cities.Core\Cities.Core.csproj" />
+    <ProjectReference Include="..\Cities.Infra.Data\Cities.Infra.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
