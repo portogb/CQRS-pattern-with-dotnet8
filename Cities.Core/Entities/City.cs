@@ -6,13 +6,28 @@ using System.Threading.Tasks;
 
 namespace Cities.Core.Entities
 {
-    public sealed class City(Guid id, string name, string state, string? website) : BaseEntity
+    public sealed class City : BaseEntity
     {
-        public string Name { get; init; } = name;
-        public string State { get; init; } = state;
-        public string? Website { get; init; } = website;
+        public string Name { get; init; }
+        public string State { get; init; } 
+        public string? Website { get; init; }
 
-        public City(string name, string state, string? website) : this(Guid.Empty, name, state, website) { }
+        public City() {}
+
+        public City(Guid id , string name, string state, string? website)
+        {
+            Id = id;
+            Name = name;
+            State = state;
+            Website = website;
+        }
+
+        public City(string name, string state, string? website)
+        {
+            Name = name;
+            State = state;
+            Website = website;
+        }
     }
 }
     

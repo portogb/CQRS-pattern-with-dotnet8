@@ -8,7 +8,7 @@ namespace Cities.Core.Entities
 {
     public abstract class BaseEntity(Guid id)
     {
-        public Guid Id { get; init; } = id;
+        public Guid? Id { get; set; } = id;
 
         protected BaseEntity() : this(Guid.Empty) { }
     }
