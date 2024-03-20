@@ -30,4 +30,10 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="API\" />
+    <Folder Include="Application\Command\City\CreateCity\" />
+    <Folder Include="Application\Queries\" />
+  </ItemGroup>
+
 </Project>
